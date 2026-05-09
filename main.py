@@ -4413,7 +4413,7 @@ def resolve_text_stack_positions(
         return int(round(arabic_top)), int(round(preferred_translation_top))
 
     translation_block_height = (translation_line_count * (translation_font_size + translation_line_spacing)) - translation_line_spacing
-    minimum_gap = 90 if is_cinematic else 70
+    minimum_gap = 160 if is_cinematic else 140
 
     arabic_top = preferred_arabic_top
     translation_top = max(preferred_translation_top, arabic_top + arabic_block_height + minimum_gap)
