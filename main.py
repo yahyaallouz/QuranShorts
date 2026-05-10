@@ -385,6 +385,13 @@ class RenderConfig:
 
     @classmethod
     def from_payload(cls, config_dir: Path, payload: dict[str, object]) -> "RenderConfig":
+        payload["translation"] = ""
+        for seg_list in (payload.get("word_segments"), payload.get("timed_segments")):
+            if isinstance(seg_list, list):
+                for seg in seg_list:
+                    if isinstance(seg, dict):
+                        seg["translation"] = ""
+
         cache_dir_value = payload.get("cache_dir", DEFAULT_CACHE_DIR)
         cache_dir = resolve_config_path(config_dir, cache_dir_value)
         verse_reference = resolve_verse_reference(payload)
