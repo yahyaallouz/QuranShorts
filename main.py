@@ -5198,7 +5198,7 @@ def create_text_assets(config: RenderConfig, temp_dir: Path) -> dict[str, list[P
         meta_text = wrap_text(meta_value, width=24 if is_cinematic else 36)
 
     verse_text = build_wrapped_arabic_text(config.verse_text, is_cinematic=is_cinematic)
-    translation_text = wrap_text(config.translation, width=30 if is_cinematic else 34) if config.translation else ""
+    translation_text = ""
     brand_text = wrap_text(config.brand_text, width=24 if is_cinematic else 32) if config.show_brand else ""
 
     assets = {
@@ -5221,7 +5221,7 @@ def create_segment_assets(config: RenderConfig, temp_dir: Path) -> list[SegmentT
     segment_assets: list[SegmentTextAsset] = []
     for index, segment in enumerate(config.word_segments):
         arabic_text = build_wrapped_arabic_text(segment.arabic, is_cinematic=is_cinematic)
-        translation_text = wrap_text(segment.translation, width=40 if is_cinematic else 45)
+        translation_text = ""
         segment_assets.append(
             SegmentTextAsset(
                 arabic_lines=build_arabic_line_files(temp_dir, f"segment_arabic_{index}", arabic_text),
@@ -5240,7 +5240,7 @@ def create_timed_segment_assets(config: RenderConfig, temp_dir: Path) -> list[Ti
     timed_assets: list[TimedSegmentTextAsset] = []
     for index, segment in enumerate(config.timed_segments):
         arabic_text = build_wrapped_arabic_text(segment.arabic, is_cinematic=is_cinematic)
-        translation_text = wrap_text(segment.translation, width=40 if is_cinematic else 45)
+        translation_text = ""
         timed_assets.append(
             TimedSegmentTextAsset(
                 arabic_lines=build_arabic_line_files(temp_dir, f"timed_segment_arabic_{index}", arabic_text),
