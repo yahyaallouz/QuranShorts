@@ -59,7 +59,7 @@ jobs:
           python ./main.py \
             --auto \
             --count 1 \
-            --target-seconds 60 \
+            --target-seconds 55 \
             --youtube-upload \
             --youtube-client-secrets-file ./.secrets/youtube-client-secret.json \
             --youtube-token-file ./.secrets/youtube-token.json \
